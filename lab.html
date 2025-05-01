@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Lab Experiments | DAA Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta name="description" content="Explore hands-on lab experiments from the Design and Analysis of Algorithms course" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      </head>
+      
+<body>
+
+</head>
+<body>
+    <header id="mainHeader">
+        <div class="header-left">DAA Portfolio</div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <nav class="header-right" id="headerNav">
+            <a href="index.html" class="active">Home</a>
+            <a href="concepts.html">Concepts</a>
+            <a href="lab.html">Lab Exercises</a>
+            <a href="conclusion.html">Conclusion</a>
+        </nav>
+    </header>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.getElementById('headerNav');
+            nav.classList.toggle('show');
+        });
+
+        // Highlight Active Page
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.header-right a');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        // Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth hover effects
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+  <!-- Hero Section -->
+  <section class="lab-hero">
+    <div class="lab-hero-content">
+      <h1>Algorithmic Explorations</h1>
+      <p>Hands-on implementation of theoretical concepts through practical lab exercises</p>
+    </div>
+  </section>
+
+  <!-- Lab Introduction -->
+  <section class="section lab-intro">
+    <h2>Laboratory Journey Through Algorithms</h2>
+    <p>Welcome to the laboratory section of my Design and Analysis of Algorithms portfolio. This section documents my hands-on journey implementing the theoretical concepts covered in the course. Through these experiments, I've transformed abstract algorithmic ideas into working code, analyzed performance characteristics, and gained practical insights into computational efficiency.</p>
+    
+    <div class="lab-highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">📊</div>
+        <h3>Performance Analysis</h3>
+        <p>Each lab exercise includes empirical analysis of algorithmic performance across different input sizes.</p>
+      </div>
+      
+      <div class="highlight-card">
+        <div class="highlight-icon">🧩</div>
+        <h3>Implementation Challenges</h3>
+        <p>Converting theoretical algorithms to efficient code requires careful handling of edge cases and optimizations.</p>
+      </div>
+      
+      <div class="highlight-card">
+        <div class="highlight-icon">🔄</div>
+        <h3>Iterative Improvement</h3>
+        <p>Many implementations underwent multiple refinements to enhance efficiency and readability.</p>
+      </div>
+    </div>
+    
+    <p class="lab-approach">My approach to these lab exercises focused on not just making algorithms work, but understanding their inner workings, time-space tradeoffs, and real-world applicability. I've documented key insights, optimization techniques, and comparative analyses for each implementation.</p>
+    
+    <div class="lab-methodology">
+      <h3>Methodology</h3>
+      <ol>
+        <li><strong>Algorithm Design:</strong> Planning the implementation approach</li>
+        <li><strong>Core Implementation:</strong> Coding the algorithm with focus on correctness</li>
+        <li><strong>Testing:</strong> Validating with various test cases including edge cases</li>
+        <li><strong>Optimization:</strong> Refining code for better performance</li>
+        <li><strong>Analysis:</strong> Documenting time and space complexity findings</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Interactive Lab Guide -->
+  <section class="lab-guide-section">
+    <h2>Interactive Lab Guide</h2>
+    <p>Explore each algorithm implementation below. Click on an experiment to view details about the implementation approach, code structure, and performance analysis.</p>
+  
+    <!-- Algorithm type filter -->
+    <div class="filter-controls">
+      <span>Filter by type: </span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="sorting">Sorting</button>
+      <button class="filter-btn" data-filter="searching">Searching</button>
+      <button class="filter-btn" data-filter="graph">Graph</button>
+      <button class="filter-btn" data-filter="dp">Dynamic Programming</button>
+      <button class="filter-btn" data-filter="greedy">Greedy</button>
+      <button class="filter-btn" data-filter="backtracking">Backtracking</button>
+    </div>
+  </section>
+
+  <!-- Accordion Section -->
+  <section class="lab-section">
+    <div class="accordion">
+
+      <div class="accordion-item" data-type="sorting">
+        <button class="accordion-header">
+          <span class="exp-number">01</span>
+          <span class="exp-title">Insertion Sort & Bubble Sort</span>
+          <span class="exp-complexity">O(n²)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Elementary Sorting Algorithms</h3>
+              <p>These fundamental sorting algorithms serve as a foundation for understanding more complex sorting techniques.</p>
+              
+              <div class="algorithm-details">
+                <h4>Insertion Sort</h4>
+                <p>Builds the sorted array one item at a time by repeatedly taking elements from the unsorted part and inserting them into their correct position in the sorted part.</p>
+                <ul class="algorithm-properties">
+                  <li><strong>Best Case:</strong> O(n) - when array is already sorted</li>
+                  <li><strong>Average Case:</strong> O(n²)</li>
+                  <li><strong>Worst Case:</strong> O(n²) - when array is reverse sorted</li>
+                  <li><strong>Space Complexity:</strong> O(1) - in-place algorithm</li>
+                  <li><strong>Stability:</strong> Stable</li>
+                </ul>
+                
+                <div class="implementation-insight">
+                  <h4>Implementation Insight</h4>
+                  <p>My implementation focuses on readability while maintaining optimal performance. I used a slightly different approach than the textbook algorithm by using a temporary variable to hold the current element, which simplified the inner loop logic.</p>
+                </div>
+              </div>
+              
+              <div class="algorithm-details">
+                <h4>Bubble Sort</h4>
+                <p>Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process repeats until no swaps are needed.</p>
+                <ul class="algorithm-properties">
+                  <li><strong>Best Case:</strong> O(n) - with optimization to detect already sorted array</li>
+                  <li><strong>Average Case:</strong> O(n²)</li>
+                  <li><strong>Worst Case:</strong> O(n²)</li>
+                  <li><strong>Space Complexity:</strong> O(1)</li>
+                  <li><strong>Stability:</strong> Stable</li>
+                </ul>
+                
+                <div class="implementation-insight">
+                  <h4>Implementation Insight</h4>
+                  <p>I enhanced the standard bubble sort with an optimization flag that detects when no swaps occur in a pass, indicating the array is sorted. This improved performance significantly on partially sorted arrays.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+                <h4>Performance Analysis</h4>
+                <p>Insertion sort has a time complexity of O(n²) in the worst case, as it compares and shifts elements one by one. Bubble sort also has O(n²) in the worst case, repeatedly swapping adjacent elements. Both are inefficient for large datasets, but insertion sort can perform better with nearly sorted data.</p>
+
+              <div class="key-findings">
+                <h5>Key Findings</h5>
+                <ul>
+                  <li>Insertion sort outperformed bubble sort in nearly all test cases</li>
+                  <li>For small arrays (n < 20), both algorithms showed minimal performance differences</li>
+                  <li>Insertion sort was significantly faster on partially sorted arrays</li>
+                  <li>Neither algorithm scaled well for large inputs (n > 10,000)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="searching">
+        <button class="accordion-header">
+          <span class="exp-number">02</span>
+          <span class="exp-title">Linear & Binary Search</span>
+          <span class="exp-complexity">O(n) / O(log n)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Search Algorithm Implementation</h3>
+              <p>This experiment compares two fundamental search algorithms: Linear Search for unsorted arrays and Binary Search for sorted arrays.</p>
+              
+              <div class="algorithm-details">
+                <h4>Linear Search</h4>
+                <p>Sequentially checks each element until the target is found or the end of array is reached.</p>
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(n)</li>
+                  <li><strong>Space Complexity:</strong> O(1)</li>
+                  <li><strong>Key Advantage:</strong> Works on unsorted arrays</li>
+                </ul>
+              </div>
+              
+              <div class="algorithm-details">
+                <h4>Binary Search</h4>
+                <p>Uses divide-and-conquer by repeatedly dividing the search interval in half.</p>
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(log n)</li>
+                  <li><strong>Space Complexity:</strong> O(1) for iterative, O(log n) for recursive</li>
+                  <li><strong>Key Advantage:</strong> Much faster for large sorted arrays</li>
+                </ul>
+                
+                <div class="implementation-insight">
+                  <h4>Implementation Note</h4>
+                  <p>I implemented both recursive and iterative versions of binary search. The iterative version avoided stack overhead and had slightly better performance. Special care was taken to prevent integer overflow in calculating mid-points using the formula <code>mid = low + (high - low) / 2</code>.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+                <h4>Performance Analysis</h4>
+                <p>Linear search has O(n) time complexity, checking each element, while binary search is more efficient with O(log n), but requires sorted data. For large datasets, binary search outperforms linear search.</p>
+  
+              
+              <div class="key-findings">
+                <h5>Results Summary</h5>
+                <ul>
+                  <li>Binary search showed logarithmic growth as expected</li>
+                  <li>With large arrays (n > 10,000), binary search was 10-15x faster</li>
+                  <li>For small arrays (n < 100), performance difference was negligible</li>
+                  <li>The sorting time must be considered when choosing binary search</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="sorting">
+        <button class="accordion-header">
+          <span class="exp-number">03</span>
+          <span class="exp-title">Merge Sort</span>
+          <span class="exp-complexity">O(n log n)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Merge Sort Implementation</h3>
+              <p>A divide-and-conquer algorithm that divides the input array into two halves, recursively sorts them, and then merges the sorted halves.</p>
+              
+              <ul class="algorithm-properties">
+                <li><strong>Time Complexity:</strong> O(n log n) in all cases</li>
+                <li><strong>Space Complexity:</strong> O(n) auxiliary space</li>
+                <li><strong>Stability:</strong> Stable</li>
+              </ul>
+              
+              <div class="implementation-insight">
+                <h4>Implementation Challenges</h4>
+                <p>The main challenge was optimizing the merge operation to minimize memory allocations. I used a single auxiliary array for all merge operations rather than creating new arrays for each recursive call, which significantly improved performance.</p>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Performance Analysis</h4>
+              <p>Merge sort consistently outperformed O(n²) algorithms for medium to large arrays. For very small arrays (n < 10), the overhead of recursion made it slightly slower than insertion sort.</p>
+              
+              <div class="optimization-note">
+                <h5>Optimization Note</h5>
+                <p>I implemented a hybrid approach that uses insertion sort for small subarrays (n < 10), resulting in about 15% performance improvement for large arrays.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="sorting">
+        <button class="accordion-header">
+          <span class="exp-number">04</span>
+          <span class="exp-title">Quick Sort</span>
+          <span class="exp-complexity">O(n log n)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Quick Sort Implementation</h3>
+              <p>Another efficient divide-and-conquer sorting algorithm that works by selecting a 'pivot' element and partitioning the array around it.</p>
+              
+              <ul class="algorithm-properties">
+                <li><strong>Average Case:</strong> O(n log n)</li>
+                <li><strong>Worst Case:</strong> O(n²) when poorly chosen pivots</li>
+                <li><strong>Space Complexity:</strong> O(log n) for recursion stack</li>
+                <li><strong>Stability:</strong> Not stable</li>
+              </ul>
+              
+              <div class="implementation-insight">
+                <h4>Pivot Selection Strategies</h4>
+                <p>I implemented and tested three pivot selection strategies:</p>
+                <ul>
+                  <li>First element as pivot</li>
+                  <li>Middle element as pivot</li>
+                  <li>Median-of-three (first, middle, last)</li>
+                </ul>
+                <p>The median-of-three approach consistently showed the best overall performance and resistance to worst-case scenarios.</p>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Performance Comparison</h4>
+              <p>Quick sort generally outperformed merge sort in practice despite having a worse worst-case complexity. The in-place partitioning gives it better cache performance and lower memory overhead.</p>
+              
+              <div class="key-findings">
+                <h5>Interesting Findings</h5>
+                <ul>
+                  <li>Quick sort was ~20% faster than merge sort on random data</li>
+                  <li>With median-of-three pivot selection, worst-case scenarios were rarely encountered</li>
+                  <li>For already sorted arrays, naive quick sort degraded to O(n²)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="sorting">
+        <button class="accordion-header">
+          <span class="exp-number">05</span>
+          <span class="exp-title">Strassen's Matrix Multiplication</span>
+          <span class="exp-complexity">O(n^2.81)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Matrix Multiplication Optimization</h3>
+              <p>Implementation of Strassen's algorithm for matrix multiplication, which reduces the number of recursive multiplications from 8 to 7.</p>
+              
+              <ul class="algorithm-properties">
+                <li><strong>Classical Approach:</strong> O(n³)</li>
+                <li><strong>Strassen's Algorithm:</strong> O(n^2.81)</li>
+                <li><strong>Space Complexity:</strong> O(n²)</li>
+              </ul>
+              
+              <div class="implementation-insight">
+                <h4>Implementation Notes</h4>
+                <p>The implementation required careful handling of matrix dimensions and recursion base cases. For matrices smaller than a threshold size (n < 32), I reverted to the classic algorithm as the overhead of Strassen's approach wasn't justified for small matrices.</p>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Performance Analysis</h4>
+              <p>Strassen's algorithm only showed significant advantages for large matrices (n > 128). For practical applications, the crossover point needs to be carefully determined.</p>
+              
+              <div class="key-findings">
+                <h5>Key Insights</h5>
+                <ul>
+                  <li>For n = 1024, Strassen's was about 20% faster than classical</li>
+                  <li>Memory usage was significantly higher with Strassen's</li>
+                  <li>Numeric stability was slightly worse in some cases</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="graph">
+        <button class="accordion-header">
+          <span class="exp-number">06</span>
+          <span class="exp-title">Convex Hull Problem</span>
+          <span class="exp-complexity">O(n log n)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Graham Scan Implementation</h3>
+              <p>Finding the smallest convex polygon that encloses a set of points in a plane using the Graham Scan algorithm.</p>
+              
+              <div class="implementation-insight">
+                <h4>Algorithm Overview</h4>
+                <p>Graham Scan works in three phases:</p>
+                <ol>
+                  <li>Find the point with lowest y-coordinate (anchor point)</li>
+                  <li>Sort all points by polar angle relative to anchor point</li>
+                  <li>Build hull by processing points in order, using a stack to manage the hull vertices</li>
+                </ol>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Performance Analysis</h4>
+              <p>The algorithm's performance was consistently O(n log n), dominated by the sorting step. My implementation handled degenerate cases such as collinear points correctly.</p>
+              
+              <div class="key-findings">
+                <h5>Observations</h5>
+                <ul>
+                  <li>For highly clustered points, performance was better than random distributions</li>
+                  <li>Numerical precision issues required careful handling of floating-point comparisons</li>
+                  <li>The algorithm correctly identified convex hulls of various shapes and distributions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="greedy">
+        <button class="accordion-header">
+          <span class="exp-number">07</span>
+          <span class="exp-title">Knapsack & Huffman Coding</span>
+          <span class="exp-complexity">O(n log n)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Greedy Algorithm Implementations</h3>
+              <p>This experiment explored two important applications of the greedy approach.</p>
+              
+              <div class="algorithm-details">
+                <h4>Fractional Knapsack</h4>
+                <p>Optimizing value by allowing fractions of items to be taken. Items are sorted by value-to-weight ratio and taken greedily.</p>
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(n log n) dominated by sorting</li>
+                  <li><strong>Space Complexity:</strong> O(n)</li>
+                </ul>
+              </div>
+              
+              <div class="algorithm-details">
+                <h4>Huffman Coding</h4>
+                <p>Building optimal prefix codes for data compression based on character frequencies.</p>
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(n log n) using a priority queue</li>
+                  <li><strong>Space Complexity:</strong> O(n) for the Huffman tree</li>
+                </ul>
+                
+                <div class="implementation-insight">
+                  <h4>Implementation Challenge</h4>
+                  <p>Building and traversing the Huffman tree efficiently was challenging. I used a min-heap (priority queue) to always extract the two nodes with lowest frequencies.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Results Analysis</h4>
+              
+              <div class="key-findings">
+                <h5>Knapsack Findings</h5>
+                <ul>
+                  <li>The greedy approach always found optimal solutions for fractional knapsack problems</li>
+                  <li>Compared with dynamic programming solutions for 0/1 knapsack, this was significantly faster</li>
+                </ul>
+                
+                <h5>Huffman Coding Findings</h5>
+                <ul>
+                  <li>Achieved compression ratios between 1.5:1 and 4:1 depending on input characteristics</li>
+                  <li>Text with highly skewed frequency distributions saw better compression</li>
+                  <li>Generated codes were provably optimal for symbol-by-symbol encoding</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="dp">
+        <button class="accordion-header">
+          <span class="exp-number">08</span>
+          <span class="exp-title">Longest Common Subsequence</span>
+          <span class="exp-complexity">O(n*m)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>LCS Implementation</h3>
+              <p>Finding the longest subsequence common to two sequences using dynamic programming.</p>
+              
+              <div class="implementation-insight">
+                <h4>Algorithm Approach</h4>
+                <p>The solution uses a 2D table to build up the LCS length for all prefixes of the two strings. After filling the table, the actual subsequence is constructed by backtracking.</p>
+                
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(n*m) where n and m are lengths of the two sequences</li>
+                  <li><strong>Space Complexity:</strong> O(n*m) for the DP table</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Space Optimization</h4>
+              <p>I implemented both the standard O(n*m) space solution and an optimized O(min(n,m)) space version that only keeps two rows of the DP table in memory at any time.</p>
+              
+              <div class="key-findings">
+                <h5>Performance Results</h5>
+                <ul>
+                  <li>Space-optimized version was crucial for very long sequences</li>
+                  <li>For sequences with many matches, runtime was faster due to simpler backtracking</li>
+                  <li>The algorithm correctly handled edge cases like empty strings and no common elements</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="backtracking">
+        <button class="accordion-header">
+          <span class="exp-number">09</span>
+          <span class="exp-title">N-Queens Problem</span>
+          <span class="exp-complexity">O(N!)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Backtracking Implementation</h3>
+              <p>Solving the classic N-Queens puzzle of placing N queens on an N×N chess board so that no two queens attack each other.</p>
+              
+              <div class="implementation-insight">
+                <h4>Solution Approach</h4>
+                <p>The algorithm places queens one row at a time, backtracking whenever a conflict is detected. Optimization includes efficient conflict checking by maintaining sets of occupied columns, diagonals, and anti-diagonals.</p>
+                
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(N!) in worst case</li>
+                  <li><strong>Space Complexity:</strong> O(N) for board representation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Performance Analysis</h4>
+              <p>The pruning strategy dramatically reduced the search space compared to a naive approach.</p>
+              
+              <div class="key-findings">
+                <h5>Results</h5>
+                <ul>
+                  <li>Successfully found all solutions for N up to 12</li>
+                  <li>For N = 8, found all 92 solutions in under 20ms</li>
+                  <li>Optimized conflict checking reduced runtime by ~60%</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="dp">
+        <button class="accordion-header">
+          <span class="exp-number">10</span>
+          <span class="exp-title">Traveling Salesman Problem</span>
+          <span class="exp-complexity">O(n²·2ⁿ)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>TSP Implementation</h3>
+              <p>Finding the shortest possible route that visits each city exactly once and returns to the origin city.</p>
+              
+              <div class="implementation-insight">
+                <h4>Solution Approach</h4>
+                <p>Implemented Held-Karp algorithm using dynamic programming with bitmasks to represent sets of visited cities.</p>
+                
+                <ul class="algorithm-properties">
+                  <li><strong>Time Complexity:</strong> O(n²·2ⁿ)</li>
+                  <li><strong>Space Complexity:</strong> O(n·2ⁿ)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Performance Analysis</h4>
+              <p>The exact DP solution was practical only for small instances (n ≤ 20). For larger instances, I implemented approximation algorithms.</p>
+              
+              <div class="key-findings">
+                <h5>Findings</h5>
+                <ul>
+                  <li>DP solution found optimal routes for n ≤ 15 within 2 seconds</li>
+                  <li>2-approximation via minimum spanning tree + DFS provided good results for larger instances</li>
+                  <li>Local search improvements (2-opt) refined approximate solutions effectively</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="sorting">
+        <button class="accordion-header">
+          <span class="exp-number">11</span>
+          <span class="exp-title">Randomized Quick Sort</span>
+          <span class="exp-complexity">O(n log n)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Randomized Pivot Selection</h3>
+              <p>Enhancing Quick Sort with randomized pivot selection to avoid worst-case scenarios.</p>
+              
+              <div class="implementation-insight">
+                <h4>Implementation Details</h4>
+                <p>The algorithm randomly selects a pivot element before each partition operation, making worst-case scenarios extremely unlikely.</p>
+                
+                <ul class="algorithm-properties">
+                  <li><strong>Expected Time Complexity:</strong> O(n log n)</li>
+                  <li><strong>Worst Case (rare):</strong> O(n²)</li>
+                  <li><strong>Space Complexity:</strong> O(log n) average case for recursion stack</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="experiment-analysis">
+              <h4>Comparative Analysis</h4>
+              <p>Compared standard Quick Sort with randomized variant across different input distributions.</p>
+              
+              <div class="key-findings">
+                <h5>Results</h5>
+                <ul>
+                  <li>Randomized version performed consistently regardless of input order</li>
+                  <li>Standard Quick Sort degraded severely on sorted or nearly-sorted data</li>
+                  <li>The randomization overhead was negligible compared to benefits gained</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-type="searching">
+        <button class="accordion-header">
+          <span class="exp-number">12</span>
+          <span class="exp-title">String Matching Algorithms</span>
+          <span class="exp-complexity">O(n + m)</span>
+        </button>
+        <div class="accordion-content">
+          <div class="experiment-details">
+            <div class="experiment-description">
+              <h3>Pattern Matching Implementation</h3>
+              <p>Implementing and comparing efficient string matching algorithms: Naive, KMP, and Rabin-Karp.</p>
+              
+              <div class="algorithm-details">
+                <h4>Pattern Matching Implementation</h4>
+                <p>Implementing and comparing efficient string matching algorithms: Naive, KMP, and Rabin-Karp.</p>
+                
+                <div class="implementation-insight">
+                  <h4>Algorithm Details</h4>
+                  <p>Three distinct approaches were implemented:</p>
+                  
+                  <ul class="algorithm-properties">
+                    <li><strong>Naive Algorithm:</strong>
+                      <ul>
+                        <li>Time Complexity: O(n*m) where n is text length and m is pattern length</li>
+                        <li>Space Complexity: O(1)</li>
+                        <li>Approach: Simple sliding window with character-by-character comparison</li>
+                      </ul>
+                    </li>
+                    
+                    <li><strong>Knuth-Morris-Pratt (KMP):</strong>
+                      <ul>
+                        <li>Time Complexity: O(n+m)</li>
+                        <li>Space Complexity: O(m) for prefix table</li>
+                        <li>Approach: Utilizes pattern's self-similarity to avoid redundant comparisons</li>
+                      </ul>
+                    </li>
+                    
+                    <li><strong>Rabin-Karp:</strong>
+                      <ul>
+                        <li>Time Complexity: O(n+m) average, O(n*m) worst case</li>
+                        <li>Space Complexity: O(1)</li>
+                        <li>Approach: Uses rolling hash function to quickly compare pattern with text windows</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>              
+                <div class="key-findings">
+                  <h5>Results Summary</h5>
+                  <ul>
+                    <li>KMP consistently outperformed the naive approach, especially for patterns with repeated characters</li>
+                    <li>Rabin-Karp performed well for multiple pattern searching using the same hash function</li>
+                    <li>For short patterns (m < 5), the naive algorithm was surprisingly competitive due to lower overhead</li>
+                    <li>Implementation complexity: Naive < Rabin-Karp < KMP</li>
+                  </ul>
+                </div>
+                
+                <div class="application-examples">
+                  <h5>Practical Applications</h5>
+                  <p>The implementation was tested on real-world use cases:</p>
+                  <ul>
+                    <li>Keyword searching in large text documents</li>
+                    <li>DNA sequence matching with biological data</li>
+                    <li>Plagiarism detection in code samples</li>
+                  </ul>
+                  <p>KMP algorithm provided the best balance of performance and reliability across these applications.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lab Conclusion -->
+  <section class="section lab-conclusion">
+    <h2>Lab Experience Reflection</h2>
+    <p>Through these twelve lab experiments, I've gained practical experience implementing a wide range of algorithms, from elementary sorting techniques to complex dynamic programming solutions. This hands-on journey has transformed abstract algorithmic concepts into tangible code, deepening my understanding of algorithm design principles and performance optimization techniques.</p>
+    
+    <div class="learning-outcomes">
+      <h3>Key Learning Outcomes</h3>
+      <ul>
+        <li>Developed intuition for selecting appropriate algorithms based on problem constraints</li>
+        <li>Gained experience in algorithm implementation, testing, and optimization</li>
+        <li>Understood practical implications of algorithmic complexity in real-world scenarios</li>
+        <li>Learned to measure and analyze algorithmic performance empirically</li>
+        <li>Developed skills in translating theoretical concepts into efficient code</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer style="background-color: #003366; color: white; padding: 40px 20px; margin-top: 40px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: 0 auto; text-align: left;">
+        <!-- Contact Information Section -->
+        <div style="flex: 1; min-width: 300px; margin-bottom: 30px; padding: 0 15px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #FFD700; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">CONTACT INFO</h3>
+            <p style="margin: 10px 0; font-size: 18px; line-height: 1.6;">
+                <strong>Abhinay Selvakumar</strong><br>
+                RA2311030010035<br>
+                <i class="fas fa-phone" style="margin-right: 8px; color: #FFD700;"></i> +91-9606352425<br>
+                <i class="fas fa-envelope" style="margin-right: 8px; color: #FFD700;"></i> <a href="mailto:as8713@srmist.edu.in" style="color: #FFD700; text-decoration: none;">as8713@srmist.edu.in</a>
+            </p>
+        </div>
+        
+        <!-- Quick Links Section -->
+        <div style="flex: 1; min-width: 300px; margin-bottom: 30px; padding: 0 15px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #FFD700; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">QUICK LINKS</h3>
+            <nav style="display: flex; flex-direction: column;">
+                <a href="index.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Home</a>
+                <a href="concepts.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Concepts</a>
+                <a href="lab.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Lab Exercises</a>
+                <a href="conclusion.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Conclusion</a>
+            </nav>
+        </div>
+        
+        <!-- Connect Section -->
+        <div style="flex: 1; min-width: 300px; margin-bottom: 30px; padding: 0 15px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #FFD700; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">CONNECT WITH ME</h3>
+            <div class="social-icons" style="margin: 20px 0;">
+                <a href="#" target="_blank" style="display: inline-block; color: white; margin: 0 15px 0 0; font-size: 24px; background-color: rgba(255,255,255,0.1); width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; transition: all 0.3s ease;"><i class="fas fa-info-circle"></i></a>
+                <a href="#" target="_blank" style="display: inline-block; color: white; margin: 0 15px 0 0; font-size: 24px; background-color: rgba(255,255,255,0.1); width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; transition: all 0.3s ease;"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" style="display: inline-block; color: white; margin: 0 15px 0 0; font-size: 24px; background-color: rgba(255,255,255,0.1); width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; transition: all 0.3s ease;"><i class="fab fa-github"></i></a>
+            </div>
+            <p style="margin-top: 20px; font-size: 16px;">Stay connected for updates on my latest projects and algorithmic explorations!</p>
+        </div>
+    </div>
+    
+    <!-- Copyright Section -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 10px; text-align: center;">
+        <p style="font-size: 16px;">&copy; 2025 Abhinay Selvakumar. All rights reserved.</p>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

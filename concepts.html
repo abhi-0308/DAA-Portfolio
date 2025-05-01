@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>DAA Concepts</title>
+        <link rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      </head>
+      
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">DAA Portfolio</div>
+    <nav class="header-right">
+      <a href="index.html">Home</a>
+      <a href="concepts.html" class="active">Concepts</a>
+      <a href="lab.html">Lab Exercises</a>
+      <a href="conclusion.html">Conclusion</a>
+    </nav>
+    <div class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Concepts Intro -->
+  <section class="section">
+    <h1>Design and Analysis of Algorithms - Core Concepts</h1>
+    <p>The DAA course equips us with tools to design efficient algorithms, analyze their performance, and solve computational problems using different strategies. This comprehensive overview explores the fundamental paradigms and techniques that form the backbone of modern algorithm design.</p>
+    
+    <div class="btn-group">
+      <button onclick="scrollToSection('divide-conquer')">Divide & Conquer</button>
+      <button onclick="scrollToSection('dynamic-programming')">Dynamic Programming</button>
+      <button onclick="scrollToSection('greedy')">Greedy Algorithms</button>
+    </div>
+  </section>
+
+  <!-- Topics -->
+  <section class="concepts-section">
+
+    <!-- Topic 1 -->
+    <div class="concept" id="basic-techniques">
+      <h2>1. Introduction to Algorithms & Basic Techniques</h2>
+      <p>We started with understanding what algorithms are and how to evaluate their efficiency using recurrence relations and Big-O notation.</p>
+      <ul>
+        <li><strong>Insertion Sort:</strong> Shifts elements to place values in order. Good for small datasets.<br><code>Time Complexity: O(n²)</code></li>
+        <li><strong>Bubble Sort:</strong> Compares adjacent elements repeatedly.<br><code>Time Complexity: O(n²)</code></li>
+        <li><strong>Linear Search:</strong> Sequentially checks each element in the list.<br><code>Time Complexity: O(n)</code></li>
+      </ul>
+      <p><em>Use case:</em> Linear Search is still useful in small or unsorted datasets.</p>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">Insertion Sort Visualization</h4>
+        <p style="margin-bottom: 0;">
+          Consider array: [5, 2, 4, 6, 1, 3]<br>
+          Pass 1: [2, 5, 4, 6, 1, 3]<br>
+          Pass 2: [2, 4, 5, 6, 1, 3]<br>
+          Pass 3: [2, 4, 5, 6, 1, 3]<br>
+          Pass 4: [1, 2, 4, 5, 6, 3]<br>
+          Pass 5: [1, 2, 3, 4, 5, 6]
+        </p>
+      </div>
+    </div>
+
+    <!-- Topic 2 -->
+    <div class="concept" id="divide-conquer">
+      <h2>2. Divide and Conquer</h2>
+      <p>This paradigm breaks a problem into smaller parts, solves them recursively, and merges results. The "divide and conquer" technique leads to efficient algorithms for a wide range of problems.</p>
+      <ul>
+        <li><strong>Binary Search:</strong> Efficient for sorted data.<br><code>O(log n)</code></li>
+        <li><strong>Merge Sort:</strong> Uses recursion and merging.<br><code>O(n log n)</code></li>
+        <li><strong>Quick Sort:</strong> Partition-based sorting. Fast on average.<br><code>Avg: O(n log n), Worst: O(n²)</code></li>
+        <li><strong>Strassen's Matrix Multiplication:</strong> Reduces complexity from O(n³) to O(n^2.81).</li>
+        <li><strong>Karatsuba Algorithm:</strong> Fast multiplication of large integers.</li>
+      </ul>
+      <p><em>Real-world:</em> QuickSort is widely used in libraries due to its average-case speed.</p>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">Merge Sort vs Quick Sort</h4>
+        <p><strong>Merge Sort</strong> guarantees O(n log n) performance in all cases but requires extra memory.</p>
+        <p><strong>Quick Sort</strong> is typically faster in practice due to better cache locality and less overhead, but can degrade to O(n²) in worst case scenarios.</p>
+        <p>Partition example for Quick Sort with array [3, 8, 2, 5, 1, 4, 7, 6] and pivot=4:</p>
+        <p>After partition: [3, 2, 1, <strong>4</strong>, 8, 5, 7, 6]</p>
+      </div>
+    </div>
+
+    <!-- Topic 3 -->
+    <div class="concept" id="greedy">
+      <h2>3. Greedy Algorithms</h2>
+      <p>Make the best choice at each step hoping for an overall optimal solution. While not always guaranteed to find the global optimum, greedy algorithms are efficient for many problems.</p>
+      <ul>
+        <li><strong>Kruskal's Algorithm:</strong> Uses Disjoint Set for MST. <code>O(E log E)</code></li>
+        <li><strong>Prim's Algorithm:</strong> Grows MST from a starting vertex. <code>O(E log V)</code></li>
+        <li><strong>Dijkstra's Algorithm:</strong> Finds shortest paths in weighted graphs. <code>O((V+E) log V)</code></li>
+        <li><strong>Huffman Coding:</strong> Creates optimal prefix codes for data compression.</li>
+        <li><strong>Fractional Knapsack:</strong> Selects items with highest value-to-weight ratio.</li>
+        <li><strong>Job Sequencing with Deadlines:</strong> Maximizes profit by optimal job scheduling.</li>
+      </ul>
+      <p><em>Use case:</em> Network design, resource allocation, and scheduling.</p>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">Fractional Knapsack Example</h4>
+        <p>Items: [(value=60, weight=10), (value=100, weight=20), (value=120, weight=30)]</p>
+        <p>Knapsack capacity: 50</p>
+        <p>Value-to-weight ratios: [6, 5, 4]</p>
+        <p>Solution: Take all of item 1, all of item 2, and 2/3 of item 3</p>
+        <p>Total value: 60 + 100 + (120 × 2/3) = 240</p>
+      </div>
+    </div>
+
+    <!-- Topic 4 -->
+    <div class="concept" id="dynamic-programming">
+      <h2>4. Dynamic Programming</h2>
+      <p>Overlapping subproblems and optimal substructure are solved by storing past results (memoization). DP is powerful for optimization problems where brute force would be exponential.</p>
+      <ul>
+        <li><strong>Longest Common Subsequence (LCS):</strong> Dynamic string comparison. <code>O(m×n)</code></li>
+        <li><strong>Matrix Chain Multiplication:</strong> Optimal parenthesis placement. <code>O(n³)</code></li>
+        <li><strong>0/1 Knapsack:</strong> Select items to maximize profit with a weight constraint. <code>O(n×W)</code></li>
+        <li><strong>Shortest Path:</strong> Floyd-Warshall for all-pairs shortest paths. <code>O(V³)</code></li>
+        <li><strong>Edit Distance:</strong> Minimum operations to transform one string to another.</li>
+        <li><strong>Longest Increasing Subsequence:</strong> Find longest subsequence in ascending order.</li>
+        <li><strong>Coin Change Problem:</strong> Minimum coins needed to make a sum.</li>
+      </ul>
+      <p><em>Real-world:</em> Used in DNA sequence alignment, text comparison, and route optimization.</p>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">LCS Example: "ABCBDAB" and "BDCABA"</h4>
+        <p>DP Table (Partial):</p>
+        <pre style="background-color: #f9f9f9; padding: 8px; overflow: auto; font-family: monospace;">
+   | "" | B  | D  | C  | A  | B  | A
+---+----+----+----+----+----+----+----
+"" | 0  | 0  | 0  | 0  | 0  | 0  | 0
+A  | 0  | 0  | 0  | 0  | 1  | 1  | 1
+B  | 0  | 1  | 1  | 1  | 1  | 2  | 2
+C  | 0  | 1  | 1  | 2  | 2  | 2  | 2
+        </pre>
+        <p>Result: The LCS is "BCBA" with length 4</p>
+      </div>
+    </div>
+
+    <!-- Topic 5 -->
+    <div class="concept" id="backtracking">
+      <h2>5. Backtracking</h2>
+      <p>Systematically tries all options and backtracks if a solution fails. Backtracking is essential for solving constraint satisfaction problems and combinatorial optimization.</p>
+      <ul>
+        <li><strong>N-Queens:</strong> Place queens such that no two threaten each other. <code>O(n!)</code></li>
+        <li><strong>Subset Sum:</strong> Identify subsets with a given total.</li>
+        <li><strong>Hamiltonian Path:</strong> Find a path visiting each vertex exactly once.</li>
+        <li><strong>Graph Coloring:</strong> Assign colors to vertices with constraints.</li>
+        <li><strong>Sudoku Solver:</strong> Common backtracking application.</li>
+        <li><strong>Permutations & Combinations:</strong> Generate all possible arrangements.</li>
+      </ul>
+      <p><em>Key idea:</em> Depth-first search + undo invalid decisions when hitting constraints.</p>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">4-Queens Backtracking Solution</h4>
+        <pre style="background-color: #f9f9f9; padding: 8px; overflow: auto; font-family: monospace;">
+. Q . .  
+. . . Q  
+Q . . .  
+. . Q .  
+        </pre>
+        <p>This is one of the two valid solutions for the 4-Queens problem.</p>
+        <p>Backtracking tries placing a queen in each column, then backtracks when attacks are detected.</p>
+      </div>
+    </div>
+
+    <!-- Topic 6 -->
+    <div class="concept" id="graph-algorithms">
+      <h2>6. Graph Algorithms</h2>
+      <p>Graphs model complex systems like networks, cities, and social connections. From traversal to pathfinding and network flow, graph algorithms are foundational in computer science.</p>
+      <ul>
+        <li><strong>DFS/BFS:</strong> Graph traversal techniques. <code>O(V+E)</code></li>
+        <li><strong>Dijkstra's Algorithm:</strong> Single-source shortest path. <code>O((V+E) log V)</code></li>
+        <li><strong>Bellman-Ford:</strong> Handles negative edge weights. <code>O(V×E)</code></li>
+        <li><strong>Floyd-Warshall:</strong> All-pairs shortest path using DP. <code>O(V³)</code></li>
+        <li><strong>Topological Sort:</strong> Linear ordering of vertices in a DAG.</li>
+        <li><strong>Strongly Connected Components:</strong> Decomposition of directed graphs.</li>
+        <li><strong>Ford-Fulkerson:</strong> Maximum flow in a flow network.</li>
+        <li><strong>A* Search:</strong> Heuristic-based pathfinding algorithm.</li>
+      </ul>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">Graph Traversals Comparison</h4>
+        <p><strong>Depth-First Search (DFS):</strong> Explores as far as possible along a branch before backtracking. Useful for topological sorting, detecting cycles, and maze generation.</p>
+        <p><strong>Breadth-First Search (BFS):</strong> Explores all neighbors at the current depth before moving to vertices at the next depth level. Ideal for finding shortest paths in unweighted graphs.</p>
+        <p>For the same graph, DFS and BFS may produce different traversal orders!</p>
+      </div>
+    </div>
+
+    <!-- Topic 7 -->
+    <div class="concept" id="randomized-complexity">
+      <h2>7. Randomized Algorithms & Complexity Theory</h2>
+      <p>Random choices lead to simpler or faster average-case behavior. Complexity theory classifies problems based on their inherent difficulty.</p>
+      <ul>
+        <li><strong>Hiring Problem:</strong> Expected performance optimization.</li>
+        <li><strong>Randomized Quick Sort:</strong> Avoids worst-case by choosing pivot randomly.</li>
+        <li><strong>Monte Carlo Algorithms:</strong> May produce incorrect results with small probability.</li>
+        <li><strong>Las Vegas Algorithms:</strong> Always correct, but randomized runtime.</li>
+        <li><strong>NP-Completeness:</strong> Hard problems for which no polynomial-time solution is known (e.g., SAT, TSP).</li>
+        <li><strong>Approximation Algorithms:</strong> Provide near-optimal solutions quickly.</li>
+        <li><strong>Complexity Classes:</strong> P, NP, NP-Complete, NP-Hard, PSPACE.</li>
+      </ul>
+      <p><em>Fun fact:</em> P vs NP is one of the seven Millennium Prize Problems, with a $1 million reward!</p>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">NP-Complete Problems</h4>
+        <p>Well-known NP-Complete problems include:</p>
+        <ul style="margin-bottom: 0;">
+          <li>Traveling Salesperson Problem (TSP)</li>
+          <li>Boolean Satisfiability Problem (SAT)</li>
+          <li>Knapsack Problem (decision version)</li>
+          <li>Hamiltonian Cycle Problem</li>
+          <li>Graph Coloring Problem</li>
+        </ul>
+        <p>These problems are believed to require exponential time in the worst case.</p>
+      </div>
+    </div>
+
+    <!-- New Topic 8 -->
+    <div class="concept" id="string-algorithms">
+      <h2>8. String Algorithms</h2>
+      <p>String processing algorithms are fundamental for text manipulation, pattern matching, and bioinformatics applications.</p>
+      <ul>
+        <li><strong>Naive Pattern Matching:</strong> Simple but inefficient approach. <code>O(m×n)</code></li>
+        <li><strong>KMP Algorithm:</strong> Efficient string pattern matching. <code>O(m+n)</code></li>
+        <li><strong>Rabin-Karp Algorithm:</strong> Uses hashing for pattern matching. <code>O(m+n)</code> average</li>
+        <li><strong>Suffix Trees & Arrays:</strong> Data structures for string operations.</li>
+        <li><strong>Trie Data Structure:</strong> Efficient for dictionary operations.</li>
+        <li><strong>Longest Palindromic Substring:</strong> Find the longest palindrome in a string.</li>
+      </ul>
+      <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="margin-top: 0; color: #003366;">KMP Algorithm Visualization</h4>
+        <p>Pattern: "ABABCABAB"</p>
+        <p>Prefix table: [0,0,1,2,0,1,2,3,4]</p>
+        <p>The prefix table helps skip unnecessary comparisons by leveraging previously matched characters, making KMP much faster than naive matching for repeated patterns.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Interactive Section -->
+  <section class="section">
+    <h2>Interactive Algorithm Complexity Comparison</h2>
+    <p>Understanding time and space complexity is crucial for algorithm selection. Below is a comparison of major algorithms we've studied.</p>
+    
+    <div style="overflow-x: auto; margin: 30px 0;">
+      <table style="width: 100%; border-collapse: collapse; text-align: center;">
+        <thead>
+          <tr style="background-color: #003366; color: white;">
+            <th style="padding: 12px; border: 1px solid #ddd;">Algorithm</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Best Case</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Average Case</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Worst Case</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Space</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Stable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Quick Sort</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n²)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">No</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Merge Sort</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Heap Sort</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(n log n)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(1)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">No</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Dijkstra's</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O((V+E) log V)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O((V+E) log V)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">O(V)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Dynamic Programming</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Problem-dependent</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Problem-dependent</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Often O(n²)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="quote">
+      "Algorithmic thinking is not just about coding; it's about finding elegant solutions to complex problems through structured and analytical reasoning."
+    </div>
+  </section>
+
+  <!-- Lab Exercises CTA -->
+  <section class="section lab-brief">
+    <h2>💻 Lab Exercises Overview</h2>
+    <p>Throughout the lab sessions, we coded many algorithms using C++, reinforcing concepts with hands-on experience. These included recursive and iterative approaches, visualizing sorting methods, understanding graph traversal via adjacency lists, and implementing complex algorithms from scratch.</p>
+    <p>Our lab work focused on empirical analysis where we measured actual running times, compared theoretical complexities with practical performance, and optimized implementations for real-world scenarios.</p>
+    <button onclick="goToLab()">View All Lab Programs</button>
+  </section>
+
+  <footer style="background-color: #003366; color: white; padding: 40px 20px; margin-top: 40px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: 0 auto; text-align: left;">
+        <!-- Contact Information Section -->
+        <div style="flex: 1; min-width: 300px; margin-bottom: 30px; padding: 0 15px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #FFD700; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">CONTACT INFO</h3>
+            <p style="margin: 10px 0; font-size: 18px; line-height: 1.6;">
+                <strong>Abhinay Selvakumar</strong><br>
+                RA2311030010035<br>
+                <i class="fas fa-phone" style="margin-right: 8px; color: #FFD700;"></i> +91-9606352425<br>
+                <i class="fas fa-envelope" style="margin-right: 8px; color: #FFD700;"></i> <a href="mailto:as8713@srmist.edu.in" style="color: #FFD700; text-decoration: none;">as8713@srmist.edu.in</a>
+            </p>
+        </div>
+        
+        <!-- Quick Links Section -->
+        <div style="flex: 1; min-width: 300px; margin-bottom: 30px; padding: 0 15px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #FFD700; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">QUICK LINKS</h3>
+            <nav style="display: flex; flex-direction: column;">
+                <a href="concepts.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Concepts</a>
+                <a href="lab.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Lab Exercises</a>
+                <a href="conclusion.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Conclusion</a>
+                <a href="index.html" style="color: white; margin: 8px 0; text-decoration: none; transition: all 0.3s ease;"><i class="fas fa-chevron-right" style="margin-right: 8px; color: #FFD700; font-size: 14px;"></i>Home</a>
+            </nav>
+        </div>
+        
+        <!-- Connect Section -->
+        <div style="flex: 1; min-width: 300px; margin-bottom: 30px; padding: 0 15px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #FFD700; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">CONNECT WITH ME</h3>
+            <div class="social-icons" style="margin: 20px 0;">
+                <a href="#" target="_blank" style="display: inline-block; color: white; margin: 0 15px 0 0; font-size: 24px; background-color: rgba(255,255,255,0.1); width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; transition: all 0.3s ease;"><i class="fas fa-info-circle"></i></a>
+                <a href="#" target="_blank" style="display: inline-block; color: white; margin: 0 15px 0 0; font-size: 24px; background-color: rgba(255,255,255,0.1); width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; transition: all 0.3s ease;"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" style="display: inline-block; color: white; margin: 0 15px 0 0; font-size: 24px; background-color: rgba(255,255,255,0.1); width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; transition: all 0.3s ease;"><i class="fab fa-github"></i></a>
+            </div>
+            <p style="margin-top: 20px; font-size: 16px;">Stay connected for updates on my latest projects and algorithmic explorations!</p>
+        </div>
+    </div>
+    
+    <!-- Copyright Section -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 10px; text-align: center;">
+        <p style="font-size: 16px;">&copy; 2025 Abhinay Selvakumar. All rights reserved.</p>
+    </div>
+</footer>
+
+  <!-- Back to top button -->
+  <button id="backToTopBtn" title="Go to top">↑</button>
+
+  <script>
+    // Function to navigate to lab page
+    function goToLab() {
+      window.location.href = "lab.html";
+    }
+    
+    // Function to scroll to specific section
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    // Back to top button functionality
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+      
+      // Header scroll effect
+      const header = document.querySelector('header');
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    
+    backToTopBtn.addEventListener("click", function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const headerRight = document.querySelector('.header-right');
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        headerRight.classList.toggle('show');
+      });
+    }
+  </script>
+
+</body>
+</html>
